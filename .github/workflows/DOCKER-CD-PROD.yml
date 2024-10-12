@@ -7,7 +7,7 @@ on:
 jobs:
   ci:
     # Using Environment - Staging 환경 사용
-    environment: staging
+    environment: prod
     runs-on: ubuntu-24.04
     env:
       working-directory: .
@@ -44,11 +44,11 @@ jobs:
           cat ./application.yml
         working-directory: ${{ env.working-directory }}
 
-      - name: application-staging.yml 생성
+      - name: application-prod.yml 생성
         run: |
           cd ./src/main/resources
-          touch ./application-staging.yml
-          echo "${{ secrets.YML_STAGING }}" > ./application-staging.yml
+          touch ./application-prod.yml
+          echo "${{ secrets.YML_PROD }}" > ./application-prod.yml
         working-directory: ${{ env.working-directory }}
 
       # Gradle build - 테스트 없이 gradle 빌드
@@ -70,8 +70,8 @@ jobs:
 
       - name: docker image 빌드 및 푸시
         run: |
-          docker build -f Dockerfile-staging --platform linux/amd64 -t terningpoint/terning-staging .
-          docker push terningpoint/terning-staging
+          docker build -f Dockerfile-prod --platform linux/amd64 -t jsoonworld/foodiepass .
+          docker push jsoonworld/foodiepass
         working-directory: ${{ env.working-directory }}
 
   cd:
@@ -87,4 +87,4 @@ jobs:
           key: ${{ secrets.STAGING_SERVER_KEY }}
           script: |
             cd ~
-            ./deploy-staging.sh
+            ./deploy-prod.sh
