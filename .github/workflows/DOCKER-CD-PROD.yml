@@ -6,7 +6,7 @@ on:
 
 jobs:
   ci:
-    # Using Environment - Staging 환경 사용
+    # Using Environment - prod 환경 사용
     environment: prod
     runs-on: ubuntu-24.04
     env:
