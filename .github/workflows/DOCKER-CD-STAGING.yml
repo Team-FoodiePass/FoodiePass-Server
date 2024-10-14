@@ -44,11 +44,11 @@ jobs:
           cat ./application.yml
         working-directory: ${{ env.working-directory }}
 
-      - name: application-prod.yml 생성
+      - name: application-staging.yml 생성
         run: |
           cd ./src/main/resources
-          touch ./application-prod.yml
-          echo "${{ secrets.YML_PROD }}" > ./application-prod.yml
+          touch ./application-staging.yml
+          echo "${{ secrets.YML_STAGING }}" > ./application-staging.yml
         working-directory: ${{ env.working-directory }}
 
       # Gradle build - 테스트 없이 gradle 빌드
