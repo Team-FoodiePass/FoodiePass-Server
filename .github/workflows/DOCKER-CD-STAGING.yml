@@ -44,7 +44,7 @@ jobs:
           cat ./application.yml
         working-directory: ${{ env.working-directory }}
 
-      - name: application-staing.yml 생성
+      - name: application-staging.yml 생성
         run: |
           cd ./src/main/resources
           touch ./application-staging.yml
