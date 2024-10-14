@@ -82,9 +82,9 @@ jobs:
       - name: docker 컨테이너 실행
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.STAGING_SERVER_IP }}
-          username: ${{ secrets.STAGING_SERVER_USER }}
-          key: ${{ secrets.STAGING_SERVER_KEY }}
+          host: ${{ secrets.PROD_SERVER_IP }}
+          username: ${{ secrets.PROD_SERVER_USER }}
+          key: ${{ secrets.PROD_SERVER_KEY }}
           script: |
             cd ~
             ./deploy-prod.sh
