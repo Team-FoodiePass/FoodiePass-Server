@@ -7,7 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ErrorMessage {
 
-    TEST_ERROR_MESSAGE(401, "테스트 에러 메시지입니다.");
+    //Currency
+    CURRENCY_RATE_SCRAPING_FAILED(500, "Google Finance 페이지 크롤링에 실패했습니다."),
+    CURRENCY_RATE_ELEMENT_NOT_FOUND(404, "Google Finance 페이지에서 환율 요소를 찾을 수 없습니다."),
+    ;
 
     private final int status;
     private final String message;
